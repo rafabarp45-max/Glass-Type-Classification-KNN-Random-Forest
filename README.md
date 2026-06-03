@@ -63,3 +63,59 @@ The pipeline covers data preprocessing, descriptive and inferential statistical 
 - **KNN:** StandardScaler applied (distance-based classifier); K=3 selected via error rate analysis (K=1 to 30); 80/20 stratified split
 - **Random Forest:** 100 trees; robust to class imbalance; interpretable via feature importance
 - **Cross-validation:** 10-fold CV confirmed Random Forest superiority
+
+- ---
+
+## Tableau Dashboard
+
+The interactive dashboard includes:
+- Bar chart of glass type distribution (class imbalance visualisation)
+- Box plot of magnesium by glass type
+- Scatter plot of Mg vs Al coloured by type (class separability)
+- Multi-panel bar chart of average chemical composition per type
+- Global dynamic filter by glass type — all charts update simultaneously
+
+---
+
+## Technologies
+
+| Tool | Purpose |
+|---|---|
+| Python 3 | Full analytics pipeline |
+| Pandas / NumPy | Data manipulation |
+| Matplotlib / Seaborn | Visualisation |
+| SciPy | Shapiro-Wilk, Levene, Kruskal-Wallis tests |
+| Scikit-learn | KNN, Random Forest, cross-validation |
+| Tableau | Interactive dashboard |
+| Jupyter Notebook | Development environment |
+
+---
+
+## How to Run
+
+```bash
+git clone https://github.com/rafabarp45-max/glass-classification-knn-rf.git
+cd glass-classification-knn-rf
+pip install pandas numpy matplotlib seaborn scipy scikit-learn
+jupyter notebook CA2_-_Rafael_Da_Rosa_Barp.ipynb
+```
+
+The notebook reads `glass_data.csv` from the same directory.
+
+---
+
+## Recommendations
+
+- **Random Forest** recommended as primary classifier for glass type identification
+- Prioritise data collection for **mg, al, ba, and na** — highest predictive power
+- Address class imbalance via **SMOTE** oversampling to improve performance on types 3, 5, and 6
+- Explore **PCA** to mitigate multicollinearity between ri and ca
+
+---
+
+## References
+
+- German, B. (1987). *Glass Identification* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5WW2P
+- SciPy (2024). *scipy.stats.kruskal*. https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kruskal.html
+- Scikit-learn (2024). *KNeighborsClassifier*. https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
+- Scikit-learn (2024). *RandomForestClassifier*. https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
